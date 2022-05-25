@@ -13,10 +13,12 @@ public class Randomi implements Observable{
     private HashMap<Integer,Integer> h;
     private HashMap<String,Observer> h1;
     private Randomi r;
+    private Random rand;
     Randomi(){
         h=new HashMap<>();
         h1=new HashMap<>();
        lo= new ArrayList<>();
+       rand= new Random();
     }
 
     public Randomi getInstance(){
@@ -57,7 +59,6 @@ public class Randomi implements Observable{
         return 1;
     }
     public void generateRandom(){
-        Random rand = new Random();
         int ran = rand.nextInt(101);
         while(h.containsKey(ran)){
             ran = rand.nextInt(101);
