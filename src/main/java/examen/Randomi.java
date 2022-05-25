@@ -42,9 +42,16 @@ public class Randomi implements Observable{
     }
 
     @Override
-    public void notifyObs() {
+    public void notifyObs(String s) {
         for(Observer o: lo){
-            o.update();
+            if((h1.get(s)).equals(o)){
+                String x= "Gano el jugador" + o;
+                o.update(x);
+            }
+            else{
+                String x= "Perdio el jugador" + o;
+                o.update(x);
+            }
         }
         
     }
@@ -82,13 +89,29 @@ public class Randomi implements Observable{
             prime+=1;
         }
 
-        if(even>=5 || odd>=5 || prime>=1 || ten>=3 || twentyfive>=2){
-        notifyObs();
-        return;
+        if(even>=5){
+            notifyObs("Cinco números pares");
+            return;
+        }
+        if(odd>=5){
+            notifyObs("Cinco números impares");
+            return;
+        }
+        if(prime>=1){
+            notifyObs("Un número primo");
+            return;
+        }
+        if(ten>=3){
+            notifyObs("Tres números múltiplos de 10");
+            return;
+        }
+        if(twentyfive>=2){
+            notifyObs("Dos números múltiplos de 25");
+            
+        }
     }
         
         
     }
 }
     
-}
