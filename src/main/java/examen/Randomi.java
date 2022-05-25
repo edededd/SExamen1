@@ -58,24 +58,24 @@ public class Randomi implements Observable{
     }
     public void generateRandom(){
         Random rand = new Random();
-        int int_random = rand.nextInt(101);
-        while(h.containsKey(int_random)){
-            int_random = rand.nextInt(101);
+        int ran = rand.nextInt(101);
+        while(h.containsKey(ran)){
+            ran = rand.nextInt(101);
         }
-        h.put(int_random,1);
-        if(int_random%2==0){
+        h.put(ran,1);
+        if(ran%2==0){
             even+=1;
         }
-        if(int_random%2==1){
+        if(ran%2==1){
             odd+=1;
         }
-        if(int_random%10==0){
+        if(ran%10==0){
             ten+=1;
         }
-        if(int_random%25==0){
+        if(ran%25==0){
             twentyfive+=1;
         }
-        if(isPrime(int_random)==1){
+        if(isPrime(ran)==1){
             prime+=1;
         }
 
@@ -97,7 +97,6 @@ public class Randomi implements Observable{
         }
         if(twentyfive>=2){
             notifyObs();
-            return;
         }
 
         
